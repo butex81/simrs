@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost/simrs/public',
+    'url' => 'http://localhost/simrs/',
 
     /*
     |--------------------------------------------------------------------------
