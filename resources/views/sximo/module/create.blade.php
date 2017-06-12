@@ -3,18 +3,6 @@
 @section('content')
 
   <div class="page-content row">
-    <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-          <h3> {{ Lang::get('core.t_module') }} <small>{{ Lang::get('core.t_modulesmall') }}</small></h3>
-      </div>
-
-      <ul class="breadcrumb">
-        <li><a href="{{ URL::to('dashboard') }}"> Dashboard </a></li>
-		<li><a href="{{ URL::to('sximo/module') }}">{{ Lang::get('core.t_module') }}</a></li>
-        <li class="active"> {{ Lang::get('core.create') }} </li>
-      </ul>
-	</div>  
 
 	@if(Session::has('message'))
 		   {{ Session::get('message') }}
@@ -26,8 +14,8 @@
 
  {!! Form::open(array('url'=>'sximo/module/create/', 'class'=>'form-horizontal', 'parsley-validate'=>'','novalidate'=>'')) !!}
 
-		<div class="sbox   animated fadeInUp"> 
-			<div class="sbox-title">  </div>
+		<div class="sbox "> 
+			<div class="sbox-title">  <h3> {{ Lang::get('core.t_module') }} <small>{{ Lang::get('core.t_modulesmall') }}</small></h3> </div>
 			<div class="sbox-content"> 	
 	
       <div class="form-group">
@@ -161,6 +149,7 @@
 		<label class="col-sm-3 text-right">&nbsp;</label>
 		<div class="col-sm-9">	
 	  	<button type="submit" class="btn btn-primary ">  {{ Lang::get('core.sb_submit') }}</button>
+	  	<a href="{{ url('sximo/module')}}" class="btn btn-warning"> {{ Lang::get('core.sb_cancel')}} </a>  
 		</div>	  
 
       </div>

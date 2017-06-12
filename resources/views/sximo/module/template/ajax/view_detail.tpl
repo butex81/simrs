@@ -12,9 +12,9 @@
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-  	<li role="presentation" class="active"><a href="#home{{ $row->{key} }}" aria-controls="home" role="tab" data-toggle="tab"> View Detail </a></li>
+  	<li role="presentation" class="active"><a href="#home{{ $row->customerNumber }}" aria-controls="home" role="tab" data-toggle="tab">  {{ $pageTitle}} :   View Detail </a></li>
 	@foreach($subgrid as $sub)
-		<li role="presentation"><a href="#{{ str_replace(" ","_",$sub['title']) }}{{ $row->{key} }}" aria-controls="profile" role="tab" data-toggle="tab">{{ $sub['title'] }}</a></li>
+		<li role="presentation"><a href="#{{ str_replace(" ","_",$sub['title']) }}{{ $row->{$sub['master_key']} }}" aria-controls="profile" role="tab" data-toggle="tab">{{ $pageTitle}} :  {{ $sub['title'] }}</a></li>
 	@endforeach
   </ul>
 
@@ -33,7 +33,7 @@
 		
   	</div>
   	@foreach($subgrid as $sub)
-  	<div role="tabpanel" class="tab-pane" id="{{ str_replace(" ","_",$sub['title']) }}{{ $row->{key} }}"></div>
+  	<div role="tabpanel" class="tab-pane" id="{{ str_replace(" ","_",$sub['title']) }}{{ $row->{$sub['master_key']} }}"></div>
   	@endforeach
   </div>
 
@@ -46,9 +46,11 @@
 
 <script type="text/javascript">
 	$(function(){
-		<?php for($i=0 ; $i<count($subgrid); $i++)  :?>
-			$('#{{ str_replace(" ","_",$subgrid[$i]['title']) }}{{ $row->{key} }}').load('{!! url("{class}/lookup/".implode("-",$subgrid["$i"])."-".$id)!!}')
-		<?php endfor;?>
+		<?php foreach($subgrid as $sub) { ?>
+			$('#{{ str_replace(" ","_",$sub['title']) }}{{ $row->{$sub['master_key']} }}').load('{!! url($sub['module']."/lookup/".implode("-",$sub)."-".$row->{$sub['master_key']})!!}')
+		<?php } ?>
+
+		
 	})
 
 </script>

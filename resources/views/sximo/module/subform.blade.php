@@ -3,18 +3,6 @@
 @section('content')
 
   <div class="page-content row">
-    <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-        <h3> Edit Module : {{ $row->module_name }} [ Master Detail ] <small> Manage Installed Module </small></h3>
-      </div>
-      <ul class="breadcrumb">
-        <li><a href="{{ URL::to('dashboard') }}"> Dashboard </a></li>
-        <li ><a href="{{ URL::to( 'sximo/module' ) }}">Module </a></li>
-		<li class="active"> Master Detail Editor </li>
-      </ul>		  
-	  
-    </div>
 
 	<div class="page-content-wrapper m-t"> 
 	@include('sximo.module.tab',array('active'=>'subform'))
@@ -35,7 +23,7 @@
 	@endforeach
 </ul>	
 <div class="sbox">
-	<div class="sbox-title"><h5> Sub form ( Form Child )  <small> Setting Child Form </small> </h5></div>
+	<div class="sbox-title"><h4> {{ $row->module_title }} <small> SubForm  : Extend Form </small></h4></div>
 	<div class="sbox-content">	
   
     {!! Form::open(array('url'=>'sximo/module/savesubform/'.$module_name, 'class'=>'form-horizontal  ')) !!}

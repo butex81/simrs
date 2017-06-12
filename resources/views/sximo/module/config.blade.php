@@ -3,20 +3,6 @@
 @section('content')
 
   <div class="page-content row ">
-    <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-        <h3> Info Editor <small> Edit Info for Module </small></h3>
-      </div>
-
-      <ul class="breadcrumb">
-        <li><a href="{{ URL::to('dashboard') }}"> Dashboard </a></li>
-		<li><a href="{{ URL::to('sximo/module') }}"> Module </a></li>
-        <li class="active"> Basic Info </li>
-      </ul>	  
-	  
-    </div>
-
  <div class="page-content-wrapper m-t"> 
 @include('sximo.module.tab',array('active'=>'config','type'=> $type))
 	
@@ -30,8 +16,7 @@
 	@endforeach
 </ul>	
 <div class="sbox">
-	<div class="sbox-title"><h5> Basic Info <small> Information of module </small> </h5></div>
-	<div class="sbox-content">	
+	<div class="sbox-title"><h4> {{ $row->module_title }} <small>  :  Basic Info  ( Information of module ) </small> </h4></div>
 	<div class="col-md-6">
 	{!! Form::open(array('url'=>'sximo/module/saveconfig/'.$module_name, 'class'=>'form-horizontal ')) !!}
 	<input  type='text' name='module_id' id='module_id'  value='{{ $row->module_id }}'  style="display:none; " />

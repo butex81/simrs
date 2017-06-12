@@ -1,4 +1,5 @@
 <ul class="nav nav-tabs" style="margin-bottom:10px;">
+  <li><a href="{{ url('sximo/module') }}"><i class="icon-tablet"></i> All </a></li>
   <li @if($active == 'config') class="active" @endif ><a href="{{ URL::to('sximo/module/config/'.$module_name)}}"><i class="icon-info2"></i> Info</a></li>
   <li @if($active == 'sql') class="active" @endif >
   @if(isset($type) && $type =='generic')
@@ -16,7 +17,7 @@
   <a href="{{ URL::to('sximo/module/permission/'.$module_name)}}"><i class="icon-key2"></i> Permission</a></li>
   @if($type =='addon')
   <li @if($active == 'source') class="active" @endif >
-  <a href="{{ URL::to('sximo/module/source/'.$module_name)}}"><i class="icon-code"></i> source Code </a></li>
+  <a href="{{ URL::to('sximo/module/source/'.$module_name)}}"><i class="icon-code"></i> Codes </a></li>
   @endif
    <li @if($active == 'rebuild') class="active" @endif >
 

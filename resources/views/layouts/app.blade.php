@@ -56,6 +56,7 @@
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->		
 
+
 		<!-- AJax -->
 		<link href="{{ asset('sximo/js/plugins/ajax/ajaxSximo.css')}}" rel="stylesheet"> 
 		<script type="text/javascript" src="{{ asset('sximo/js/plugins/ajax/ajaxSximo.js') }}"></script>
@@ -111,10 +112,9 @@
 jQuery(document).ready(function ($) {
 
     $('#sidemenu').sximMenu();
-
 	setInterval(function(){ 
 		var noteurl = $('.notif-value').attr('code'); 
-		$.get( '{{ url("notification/load") }}',function(data){
+		$.get('{{ url("notification/load") }}',function(data){
 			$('.notif-alert').html(data.total);
 			var html = '';
 			$.each( data.note, function( key, val ) {
@@ -124,7 +124,7 @@ jQuery(document).ready(function ($) {
 			html += '<li><div class="text-center link-block"><a href="'+noteurl+'/notification"><strong>View All Notification</strong> <i class="fa fa-angle-right"></i></a></div></li>';
 			$('.notif-value').html(html);
 		});
-	}, 60000);
+	}, 10000);
 		
 });	
 	

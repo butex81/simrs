@@ -23,6 +23,13 @@ class ModuleController extends Controller {
         $this->dbpass       = $database[$driver]['password'];
         $this->dbhost       = $database[$driver]['host']; 
         $this->model = new Module();
+
+
+        $this->data = array(
+            'pageTitle' =>  'Module',
+            'pageNote'  =>  'Manage All Module',
+            
+        );        
 	}
 
 	public function getIndex( Request $request)
@@ -1694,14 +1701,7 @@ class ModuleController extends Controller {
                     file_put_contents(  $dirM ."{$ctr}.php" , $build_model) ;
                     file_put_contents(  $dir."/index.blade.php" , $build_grid) ; 
                     file_put_contents( $dir."/form.blade.php" , $build_form) ;
-
-                     if(isset($config['subgrid']) && count($config['subgrid'])>=1)
-                     {
-                        file_put_contents(  $dir."/view_detail.blade.php" , $build_view) ;
-                     } else {
-                        file_put_contents(  $dir."/view.blade.php" , $build_view) ;
-                     }
-                            
+                    file_put_contents(  $dir."/view.blade.php" , $build_view) ;       
                     file_put_contents(  $dir."/public/index.blade.php" , $build_front) ;  
                     file_put_contents(  $dir."/public/view.blade.php" , $build_frontview) ; 
                     file_put_contents(  $dir."/public/form.blade.php" , $build_frontform) ;                                     

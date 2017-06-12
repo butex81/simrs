@@ -3,18 +3,7 @@
 @section('content')
 
   <div class="page-content row">
-    <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-        <h3> Form Editor: {{ $row->module_name }} <small> Edit Form Info </small></h3>
-      </div>
-      <ul class="breadcrumb">
-        <li><a href="{{ URL::to('dashboard') }}"> Dashboard </a></li>
-		<li><a href="{{ URL::to('sximo/module') }}"> Module </a></li>
-        <li class="active"> Form Editor </li>
-      </ul>		  
-	  
-    </div>
+
 	<div class="page-content-wrapper m-t"> 
 	@include('sximo.module.tab',array('active'=>'form','type'=>$type))
 
@@ -32,7 +21,7 @@
 </ul>
   
 <div class="sbox">
-	<div class="sbox-title"><h5> Form Grid  </h5></div>
+	<div class="sbox-title"><h4> {{ $row->module_title }} <small> : Form Editor ( Edit Form Info ) </small></h4></div>
 	<div class="sbox-content">	
  {!! Form::open(array('url'=>'sximo/module/saveform/'.$module_name, 'class'=>'form-horizontal')) !!}
  <div class="table-responsive">

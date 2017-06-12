@@ -644,7 +644,7 @@ abstract class Controller extends BaseController {
 		$filter 	= (!is_null(Input::get('search')) ? $this->buildSearch() : '');
 		//$filter 	.=  $master['masterFilter'];			
 		$params 	= array(
-					'params'	=>$filter
+					'params'	=>''
 		);		
 		$results 	= $this->model->getRows( $params );
 		$fields		= $info['config']['grid'];
@@ -687,6 +687,8 @@ abstract class Controller extends BaseController {
 			$model = '\\App\\Models\\'.ucwords($args['3']);
 			$model = new $model();
 			$info = $model->makeInfo( $args['3'] );
+			$data['pageTitle'] = $info['title'];
+			$data['pageNote'] = $info['note'];			
 			$params = array(
 				'params'	=> " And ".$args['4'].".".$args['5']." ='". $args['6'] ."'",
 				//'global'	=> (isset($this->access['is_global']) ? $this->access['is_global'] : 0 )
@@ -696,6 +698,12 @@ abstract class Controller extends BaseController {
 			$data['rowData']		= $results['rows'];
 			$data['tableGrid'] 	= $info['config']['grid'];
 			$data['tableForm'] 	= $info['config']['forms'];	
+			$data['colspan']		= \SiteHelpers::viewColSpan($info['config']['grid']);
+			$data['nested_subgrid']	= (isset($info['config']['subgrid']) ? $info['config']['subgrid'] : array());
+			//print_r($data['nested_subgrid']);exit;
+			$data['id'] 		= $args[6];
+			$data['key']		= $info['key'];
+			//$data['ids']		= 'md'-$info['id'];
 			return view('sximo.module.utility.masterdetail',$data);
 
 		} else {

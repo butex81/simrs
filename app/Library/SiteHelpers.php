@@ -784,7 +784,7 @@ public static function alphaID($in, $to_num = false, $pad_up = false, $passKey =
 				$f .= $limited_start;
 				$f .= "
 					<tr>
-						<td width='30%' class='label-view text-right'>".$grid['label']."</td>
+						<td width='30%' class='label-view text-right'>{{ SiteHelpers::activeLang('".$grid['label']."', (isset(\$fields['".$grid['field']."']['language'])? \$fields['".$grid['field']."']['language'] : array())) }}</td>
 						<td>".$val." </td>
 						
 					</tr>

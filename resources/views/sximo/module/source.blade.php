@@ -5,25 +5,12 @@
 <link href="{{ asset('sximo/js/plugins/jquery.fileTree/jqueryFileTree.css') }}" rel="stylesheet">
 
   <div class="page-content row ">
-    <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-        <h3> Info Editor <small> Edit Info for Module </small></h3>
-      </div>
-
-      <ul class="breadcrumb">
-        <li><a href="{{ URL::to('dashboard') }}"> Dashboard </a></li>
-		<li><a href="{{ URL::to('sximo/module') }}"> Module </a></li>
-        <li class="active"> Basic Info </li>
-      </ul>	  
-	  
-    </div>
 
  	<div class="page-content-wrapper m-t"> 
  	<div class="ajaxLoading"></div>
  	@include('sximo.module.tab',array('active'=>'source','type'=> 'addon'))
  		<div class="sbox">
- 		<div class="sbox-title"><h3> Edit Source Code </h3> </div>
+ 		<div class="sbox-title"><h4> {{ $row->module_title }} <small> : Source Code Editor </small></h4></div>
  		<div class="sbox-content">
 	 		<div class="row">
 	 			<div class="col-md-3">

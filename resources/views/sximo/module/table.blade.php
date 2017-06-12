@@ -12,18 +12,6 @@
 		);
 	?>
   <div class="page-content row">
-    <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-        <h3> Table Editor : {{ $row->module_name }} <small> Edit Table Setting </small></h3>
-      </div>
-      <ul class="breadcrumb">
-        <li><a href="{{ URL::to('dashboard') }}"> Dashboard </a></li>
-		<li><a href="{{ URL::to('sximo/module') }}"> Module </a></li>
-        <li class="active"> Table Editor </li>
-      </ul>		  
-	  
-    </div>
 
 	 <div class="page-content-wrapper m-t"> 
 	@include('sximo.module.tab',array('active'=>'table','type'=>$type))
@@ -34,7 +22,7 @@
 
  {!! Form::open(array('url'=>'sximo/module/savetable/'.$module_name, 'class'=>'form-horizontal')) !!}
 <div class="sbox">
-	<div class="sbox-title"><h5> Table Grid  </h5></div>
+	<div class="sbox-title"> <h4>  {{ $row->module_title }} <small> : Table Editor ( Edit Table Setting ) </small></h4></div>
 	<div class="sbox-content">	
 
 	<div class="infobox infobox-success fade in">

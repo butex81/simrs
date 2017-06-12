@@ -3,18 +3,6 @@
 @section('content')
 
   <div class="page-content row">
-    <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-          <h3> Permission Editor : {{ $row->module_name }} <small> Edit Permission Info </small></h3>
-      </div>
-      <ul class="breadcrumb">
-        <li><a href="{{ URL::to('dashboard') }}"> Dashboard </a></li>
-		<li><a href="{{ URL::to('sximo/module') }}"> Module </a></li>
-        <li class="active"> Permission Editor </li>
-      </ul>		  
-	  
-    </div>
 	<div class="page-content-wrapper m-t"> 
 	@include('sximo.module.tab',array('active'=>'permission','type'=>$type))
 
@@ -25,7 +13,7 @@
  {!! Form::open(array('url'=>'sximo/module/savepermission/'.$module_name, 'class'=>'form-horizontal')) !!}
 
 <div class="sbox">
-	<div class="sbox-title"><h5> Module Permission </h5></div>
+	<div class="sbox-title"><h4> {{ $row->module_title }} <small> :  Module Permission </small></h4></div>
 	<div class="sbox-content">	
 		<table class="table table-striped table-bordered" id="table">
 		<thead class="no-border">

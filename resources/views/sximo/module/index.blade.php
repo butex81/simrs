@@ -8,7 +8,7 @@
 		<section >
 
 				<div class="row m-l-none m-r-none m-t  white-bg shortcut " >
-					<div class="col-sm-3  p-sm ribon-setting">
+					<div class="col-sm-3  p-sm ribon-white">
 						<span class="pull-left m-r-sm "><i class="icon-folder-plus3"></i></span> 
 						<a href="{{ URL::to('sximo/module/create') }}" class="clear">
 							<span class="h3 block m-t-xs"><strong> {{ Lang::get('core.btn_create') }} Module </strong>
@@ -22,14 +22,14 @@
 							</span> <small >{{ Lang::get('core.fr_installmodule') }} </small> 
 						</a>
 					</div>				
-					<div class="col-sm-3   p-sm ribon-users">
+					<div class="col-sm-3   p-sm ribon-white">
 						<span class="pull-left m-r-sm "><i class="icon-folder-download2"></i></span>
 						<a href="{{ URL::to('sximo/module/package') }}" class="clear post_url">
 							<span class="h3 block m-t-xs"><strong>{{ Lang::get('core.btn_backup') }} Module</strong>
 							</span> <small > {{ Lang::get('core.fr_backupmodule') }} </small> 
 						</a>
 					</div>					
-					<div class="col-sm-6 col-md-3  p-sm ribon-menu">
+					<div class="col-sm-6 col-md-3  p-sm ribon-setting">
 						<span class="pull-left m-r-sm "><i class="icon-database"></i></span>
 						<a href="{{ URL::to('sximo/tables') }}" >
 							<span class="h3 block m-t-xs"><strong>Database</strong>

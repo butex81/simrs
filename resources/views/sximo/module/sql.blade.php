@@ -3,19 +3,6 @@
 @section('content')
   <div class="page-content row">
     <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-        <h3> MySQL Editor <small> Edit SQL Statement </small></h3>
-      </div>
-	  
-        <ul class="breadcrumb">
-          <li><a href="{{ URL::to('dashboard') }}"> Dashboard </a></li>
-          <li><a href="{{ URL::to('sximo/module') }}"> Module </a></li>
-          <li class="active">  MySQL Editor  </li>
-        </ul>     
-	  	  
-    </div>
-
 	 <div class="page-content-wrapper m-t"> 
 	@include('sximo.module.tab',array('active'=>'sql','type'=>  $type ))
 
@@ -23,7 +10,7 @@
 		   {{ Session::get('message') }}
 	@endif
 <div class="sbox">
- <div class="sbox-title"><h5> MySQL Statment Editor  </h5></div>
+  <div class="sbox-title"> <h4> {{ $row->module_title }}<small>  : MySQL Editor ( Edit SQL Statement ) </small></h4></div>
  <div class="sbox-content">
  {!! Form::open(array('url'=>'sximo/module/savesql/'.$module_name, 'class'=>'form-vertical ')) !!}
  <div class="infobox infobox-info fade in">

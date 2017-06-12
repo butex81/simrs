@@ -3,19 +3,7 @@
 @section('content')
 
   <div class="page-content row ">
-    <!-- Page header -->
-    <div class="page-header">
-      <div class="page-title">
-        <h3> Form Design Editor : {{ $row->module_name }} <small> Manage Installed Module </small></h3>
-      </div>
-      <ul class="breadcrumb">
-        <li><a href="{{ URL::to('dashboard') }}"> Dashboard </a></li>
-		<li><a href="{{ URL::to('sximo/module') }}"> Module </a></li>
-        <li class="active"> Form Design Editor </li>
-      </ul>	  
-    </div>
- 
-	
+
 	<div class="page-content-wrapper m-t"> 
 	
 	@include('sximo.module.tab',array('active'=>'form','type'=> 'addon'))
@@ -32,7 +20,7 @@
 </ul>
 
 <div class="sbox">
-	<div class="sbox-title"><h5> Form Layout Confiuration </h5></div>
+	<div class="sbox-title"><h4> {{ $row->module_title }} <small> Form Layout Configuration</small></h4></div>
 	<div class="sbox-content">	
 	<p class="alert alert-info"> <strong>Tips !</strong> Drag and drop rows to re ordering lists </p>	
  {!! Form::open(array('url'=>'sximo/module/formdesign/'.$module_name,'id'=>'doReorder', 'class'=>'form-vertical','parsley-validate'=>'','novalidate'=>' ')) !!}
