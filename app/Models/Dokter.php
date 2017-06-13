@@ -3,9 +3,9 @@
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class spesialis extends Sximo  {
+class dokter extends Sximo  {
 	
-	protected $table = 'spesialis';
+	protected $table = 'dokter';
 	protected $primaryKey = 'id';
 
 	public function __construct() {
@@ -15,12 +15,12 @@ class spesialis extends Sximo  {
 
 	public static function querySelect(  ){
 		
-		return "  SELECT spesialis.* FROM spesialis  ";
+		return "  SELECT dokter.* FROM dokter  ";
 	}	
 
 	public static function queryWhere(  ){
 		
-		return "  WHERE spesialis.id IS NOT NULL ";
+		return "  WHERE dokter.id IS NOT NULL ";
 	}
 	
 	public static function queryGroup(){

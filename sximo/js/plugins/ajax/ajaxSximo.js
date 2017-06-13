@@ -245,3 +245,16 @@ function SximoModalLarge( url , title)
 	});
 	$('#sximo-modal-lg').modal('show');	
 }
+
+function loadNestedLookup(url , id )
+{
+	if($(id).is(':empty'))
+	{
+		$(id).html('<p class"text-center" style="line-height:100px; text-align:center;"> Loading Content .... Please wait </p>');
+		$.get(url,function(data)
+		{
+			$(id).load(url);	
+		})
+		
+	}	
+}	

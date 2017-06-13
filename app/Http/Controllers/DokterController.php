@@ -1,22 +1,22 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\controller;
-use App\Models\Spesialis;
+use App\Models\Dokter;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
-class SpesialisController extends Controller {
+class DokterController extends Controller {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'spesialis';
+	public $module = 'dokter';
 	static $per_page	= '10';
 	
 	public function __construct() 
 	{
 		parent::__construct();
-		$this->model = new Spesialis();
+		$this->model = new Dokter();
 		
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);
@@ -24,8 +24,8 @@ class SpesialisController extends Controller {
 		$this->data = array(
 			'pageTitle'			=> 	$this->info['title'],
 			'pageNote'			=>  $this->info['note'],
-			'pageModule'		=> 'spesialis',
-			'pageUrl'			=>  url('spesialis'),
+			'pageModule'		=> 'dokter',
+			'pageUrl'			=>  url('dokter'),
 			'return' 			=> 	self::returnUrl()	
 		);		
 				
@@ -37,7 +37,7 @@ class SpesialisController extends Controller {
 			return Redirect::to('dashboard')->with('messagetext',\Lang::get('core.note_restric'))->with('msgstatus','error');
 				
 		$this->data['access']		= $this->access;	
-		return view('spesialis.index',$this->data);
+		return view('dokter.index',$this->data);
 	}	
 
 	public function postData( Request $request)
@@ -70,7 +70,7 @@ class SpesialisController extends Controller {
 		// Build pagination setting
 		$page = $page >= 1 && filter_var($page, FILTER_VALIDATE_INT) !== false ? $page : 1;	
 		$pagination = new Paginator($results['rows'], $results['total'], $params['limit']);	
-		$pagination->setPath('spesialis/data');
+		$pagination->setPath('dokter/data');
 		
 		$this->data['param']		= $params;
 		$this->data['rowData']		= $results['rows'];
@@ -92,7 +92,7 @@ class SpesialisController extends Controller {
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 		// Render into template
-		return view('spesialis.table',$this->data);
+		return view('dokter.table',$this->data);
 
 	}
 
@@ -117,14 +117,14 @@ class SpesialisController extends Controller {
 		{
 			$this->data['row'] 		=  $row;
 		} else {
-			$this->data['row'] 		= $this->model->getColumnTable('spesialis'); 
+			$this->data['row'] 		= $this->model->getColumnTable('dokter'); 
 		}
 		$this->data['setting'] 		= $this->info['setting'];
 		$this->data['fields'] 		=  \AjaxHelpers::fieldLang($this->info['config']['forms']);
 		
 		$this->data['id'] = $id;
 
-		return view('spesialis.form',$this->data);
+		return view('dokter.form',$this->data);
 	}	
 
 	public function getShow( $id = null)
@@ -144,7 +144,7 @@ class SpesialisController extends Controller {
 			$this->data['setting'] 		= $this->info['setting'];
 			$this->data['fields'] 		= \AjaxHelpers::fieldLang($this->info['config']['grid']);
 			$this->data['subgrid']		= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array());
-			return view('spesialis.view',$this->data);
+			return view('dokter.view',$this->data);
 
 		} else {
 
@@ -159,7 +159,7 @@ class SpesialisController extends Controller {
 	function postCopy( Request $request)
 	{
 		
-	    foreach(\DB::select("SHOW COLUMNS FROM spesialis ") as $column)
+	    foreach(\DB::select("SHOW COLUMNS FROM dokter ") as $column)
         {
 			if( $column->Field != 'id')
 				$columns[] = $column->Field;
@@ -170,8 +170,8 @@ class SpesialisController extends Controller {
 			$toCopy = implode(",",$request->input('ids'));
 			
 					
-			$sql = "INSERT INTO spesialis (".implode(",", $columns).") ";
-			$sql .= " SELECT ".implode(",", $columns)." FROM spesialis WHERE id IN (".$toCopy.")";
+			$sql = "INSERT INTO dokter (".implode(",", $columns).") ";
+			$sql .= " SELECT ".implode(",", $columns)." FROM dokter WHERE id IN (".$toCopy.")";
 			\DB::select($sql);
 			return response()->json(array(
 				'status'=>'success',
@@ -194,7 +194,7 @@ class SpesialisController extends Controller {
 		$rules = $this->validateForm();
 		$validator = Validator::make($request->all(), $rules);	
 		if ($validator->passes()) {
-			$data = $this->validatePost('spesialis');
+			$data = $this->validatePost('dokter');
 			
 			$id = $this->model->insertRow($data , $request->input('id'));
 			
@@ -247,8 +247,8 @@ class SpesialisController extends Controller {
 	public static function display( )
 	{
 		$mode  = isset($_GET['view']) ? 'view' : 'default' ;
-		$model  = new Spesialis();
-		$info = $model::makeInfo('spesialis');
+		$model  = new Dokter();
+		$info = $model::makeInfo('dokter');
 
 		$data = array(
 			'pageTitle'	=> 	$info['title'],
@@ -265,7 +265,7 @@ class SpesialisController extends Controller {
 				$data['row'] =  $row;
 				$data['fields'] 		=  \SiteHelpers::fieldLang($info['config']['grid']);
 				$data['id'] = $id;
-				return view('spesialis.public.view',$data);
+				return view('dokter.public.view',$data);
 			} 
 
 		} else {
@@ -289,7 +289,7 @@ class SpesialisController extends Controller {
 			$pagination->setPath('');
 			$data['i']			= ($page * $params['limit'])- $params['limit']; 
 			$data['pagination'] = $pagination;
-			return view('spesialis.public.index',$data);			
+			return view('dokter.public.index',$data);			
 		}
 
 
@@ -301,7 +301,7 @@ class SpesialisController extends Controller {
 		$rules = $this->validateForm();
 		$validator = Validator::make($request->all(), $rules);	
 		if ($validator->passes()) {
-			$data = $this->validatePost('spesialis');		
+			$data = $this->validatePost('dokter');		
 			 $this->model->insertRow($data , $request->input('id'));
 			return  Redirect::back()->with('messagetext','<p class="alert alert-success">'.\Lang::get('core.note_success').'</p>')->with('msgstatus','success');
 		} else {
