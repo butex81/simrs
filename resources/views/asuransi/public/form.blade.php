@@ -16,16 +16,7 @@
 
 <div class="col-md-12">
 						<fieldset><legend> Data Asuransi</legend>
-				{!! Form::hidden('id', $row['id']) !!}					
-									  <div class="form-group  " >
-										<label for="Kode Asuransi" class=" control-label col-md-4 text-left"> Kode Asuransi </label>
-										<div class="col-md-6">
-										  {!! Form::text('kd_pj', $row['kd_pj'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
+				{!! Form::hidden('id', $row['id']) !!}{!! Form::hidden('kd_pj', $row['kd_pj']) !!}					
 									  <div class="form-group  " >
 										<label for="Nama Asuransi" class=" control-label col-md-4 text-left"> Nama Asuransi </label>
 										<div class="col-md-6">

@@ -198,11 +198,21 @@ class AsuransiController extends Controller {
 			
 			$id = $this->model->insertRow($data , $request->input('id'));
 			
+			//if($this->access['is_add'] ==0 )
+			//{
+				$result = \DB::table('set_no_urut')->select('asuransi')->first();
+				$urutSql = $result->asuransi + 1;
+				\DB::update("UPDATE set_no_urut set asuransi=".$urutSql);
+				$urutSql = str_pad($urutSql, 3, '0', STR_PAD_LEFT); 
+				$urutSql = 'A'.$urutSql;
+				\DB::update("UPDATE penjab set kd_pj=".$urutSql." WHERE id='".$id."'");
+			//}
+
 			return response()->json(array(
 				'status'=>'success',
 				'message'=> \Lang::get('core.note_success')
 				));	
-			
+
 		} else {
 
 			$message = $this->validateListError(  $validator->getMessageBag()->toArray() );
