@@ -1,0 +1,204 @@
+<?php if($setting['view-method'] =='native'): ?>
+<div class="sbox">
+	<div class="sbox-title">  
+		<h4> <i class="fa fa-table"></i> <?php echo $pageTitle ;?> <small><?php echo e($pageNote); ?></small>
+			<a href="javascript:void(0)" class="collapse-close pull-right btn btn-xs btn-danger" onclick="ajaxViewClose('#<?php echo e($pageModule); ?>')">
+			<i class="fa fa fa-times"></i></a>
+		</h4>
+	 </div>
+
+	<div class="sbox-content"> 
+<?php endif; ?>	
+
+		<table class="table table-striped table-bordered" >
+			<tbody>	
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Id', (isset($fields['id']['language'])? $fields['id']['language'] : array()))); ?></td>
+						<td><?php echo e($row->id); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('No Rkm Medis', (isset($fields['no_rkm_medis']['language'])? $fields['no_rkm_medis']['language'] : array()))); ?></td>
+						<td><?php echo e($row->no_rkm_medis); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Nm Pasien', (isset($fields['nm_pasien']['language'])? $fields['nm_pasien']['language'] : array()))); ?></td>
+						<td><?php echo e($row->nm_pasien); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('No Ktp', (isset($fields['no_ktp']['language'])? $fields['no_ktp']['language'] : array()))); ?></td>
+						<td><?php echo e($row->no_ktp); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Jk', (isset($fields['jk']['language'])? $fields['jk']['language'] : array()))); ?></td>
+						<td><?php echo e($row->jk); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Tmp Lahir', (isset($fields['tmp_lahir']['language'])? $fields['tmp_lahir']['language'] : array()))); ?></td>
+						<td><?php echo e($row->tmp_lahir); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Tgl Lahir', (isset($fields['tgl_lahir']['language'])? $fields['tgl_lahir']['language'] : array()))); ?></td>
+						<td><?php echo e($row->tgl_lahir); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Nm Ibu', (isset($fields['nm_ibu']['language'])? $fields['nm_ibu']['language'] : array()))); ?></td>
+						<td><?php echo e($row->nm_ibu); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Alamat', (isset($fields['alamat']['language'])? $fields['alamat']['language'] : array()))); ?></td>
+						<td><?php echo e($row->alamat); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Gol Darah', (isset($fields['gol_darah']['language'])? $fields['gol_darah']['language'] : array()))); ?></td>
+						<td><?php echo e($row->gol_darah); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Pekerjaan', (isset($fields['pekerjaan']['language'])? $fields['pekerjaan']['language'] : array()))); ?></td>
+						<td><?php echo e($row->pekerjaan); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Stts Nikah', (isset($fields['stts_nikah']['language'])? $fields['stts_nikah']['language'] : array()))); ?></td>
+						<td><?php echo e($row->stts_nikah); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Agama', (isset($fields['agama']['language'])? $fields['agama']['language'] : array()))); ?></td>
+						<td><?php echo e($row->agama); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Tgl Daftar', (isset($fields['tgl_daftar']['language'])? $fields['tgl_daftar']['language'] : array()))); ?></td>
+						<td><?php echo e($row->tgl_daftar); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('No Tlp', (isset($fields['no_tlp']['language'])? $fields['no_tlp']['language'] : array()))); ?></td>
+						<td><?php echo e($row->no_tlp); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Umur', (isset($fields['umur']['language'])? $fields['umur']['language'] : array()))); ?></td>
+						<td><?php echo e($row->umur); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Pnd', (isset($fields['pnd']['language'])? $fields['pnd']['language'] : array()))); ?></td>
+						<td><?php echo e($row->pnd); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Keluarga', (isset($fields['keluarga']['language'])? $fields['keluarga']['language'] : array()))); ?></td>
+						<td><?php echo e($row->keluarga); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Namakeluarga', (isset($fields['namakeluarga']['language'])? $fields['namakeluarga']['language'] : array()))); ?></td>
+						<td><?php echo e($row->namakeluarga); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Kd Pj', (isset($fields['kd_pj']['language'])? $fields['kd_pj']['language'] : array()))); ?></td>
+						<td><?php echo e($row->kd_pj); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('No Peserta', (isset($fields['no_peserta']['language'])? $fields['no_peserta']['language'] : array()))); ?></td>
+						<td><?php echo e($row->no_peserta); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Kd Kel', (isset($fields['kd_kel']['language'])? $fields['kd_kel']['language'] : array()))); ?></td>
+						<td><?php echo e($row->kd_kel); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Kd Kec', (isset($fields['kd_kec']['language'])? $fields['kd_kec']['language'] : array()))); ?></td>
+						<td><?php echo e($row->kd_kec); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Kd Kab', (isset($fields['kd_kab']['language'])? $fields['kd_kab']['language'] : array()))); ?></td>
+						<td><?php echo e($row->kd_kab); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Pekerjaanpj', (isset($fields['pekerjaanpj']['language'])? $fields['pekerjaanpj']['language'] : array()))); ?></td>
+						<td><?php echo e($row->pekerjaanpj); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Alamatpj', (isset($fields['alamatpj']['language'])? $fields['alamatpj']['language'] : array()))); ?></td>
+						<td><?php echo e($row->alamatpj); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Kelurahanpj', (isset($fields['kelurahanpj']['language'])? $fields['kelurahanpj']['language'] : array()))); ?></td>
+						<td><?php echo e($row->kelurahanpj); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Kecamatanpj', (isset($fields['kecamatanpj']['language'])? $fields['kecamatanpj']['language'] : array()))); ?></td>
+						<td><?php echo e($row->kecamatanpj); ?> </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'><?php echo e(SiteHelpers::activeLang('Kabupatenpj', (isset($fields['kabupatenpj']['language'])? $fields['kabupatenpj']['language'] : array()))); ?></td>
+						<td><?php echo e($row->kabupatenpj); ?> </td>
+						
+					</tr>
+				
+			</tbody>	
+		</table>  
+			
+		 	
+
+<?php if($setting['form-method'] =='native'): ?>
+	</div>	
+</div>	
+<?php endif; ?>	
+
+<script>
+$(document).ready(function(){
+
+});
+</script>	

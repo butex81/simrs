@@ -3,4 +3,5 @@
                     Route::controller('dokter', 'DokterController');
                     Route::controller('poliklinik', 'PoliklinikController');
                     Route::controller('asuransi', 'AsuransiController');
+                    Route::controller('pasien', 'PasienController');
                     ?>
