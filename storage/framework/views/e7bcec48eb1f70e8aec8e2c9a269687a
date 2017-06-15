@@ -11,8 +11,8 @@
 <?php endif; ?>	
 			<?php echo Form::open(array('url'=>'pasien/save/'.SiteHelpers::encryptID($row['id']), 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ','id'=> 'pasienFormAjax')); ?>
 
-			<div class="col-md-12">
-						<fieldset><legend> Data Pasien</legend>
+			<div class="col-md-4">
+						<fieldset><legend> Info Pasien</legend>
 				<?php echo Form::hidden('id', $row['id']); ?>					
 									  <div class="form-group  " >
 										<label for="No Rekam Medis" class=" control-label col-md-4 text-left"> No Rekam Medis </label>
@@ -83,18 +83,9 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Nama Ibu" class=" control-label col-md-4 text-left"> Nama Ibu </label>
+										<label for="Umur" class=" control-label col-md-4 text-left"> Umur </label>
 										<div class="col-md-6">
-										  <?php echo Form::text('nm_ibu', $row['nm_ibu'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Alamat" class=" control-label col-md-4 text-left"> Alamat </label>
-										<div class="col-md-6">
-										  <?php echo Form::text('alamat', $row['alamat'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+										  <?php echo Form::text('umur', $row['umur'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -111,6 +102,24 @@
 						foreach($gol_darah_opt as $key=>$val)
 						{
 							echo "<option  value ='$key' ".($row['gol_darah'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
+						}						
+						?></select> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Agama" class=" control-label col-md-4 text-left"> Agama </label>
+										<div class="col-md-6">
+										  
+					<?php $agama = explode(',',$row['agama']);
+					$agama_opt = array( 'Islam' => 'Islam' ,  'Kristen Katolik' => 'Kristen Katolik' ,  'Kristen Protestan' => 'Kristen Protestan' ,  'Hindu' => 'Hindu' ,  'Budha' => 'Budha' , ); ?>
+					<select name='agama' rows='5'   class='select2 '  > 
+						<?php 
+						foreach($agama_opt as $key=>$val)
+						{
+							echo "<option  value ='$key' ".($row['agama'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
 						}						
 						?></select> 
 										 </div> 
@@ -146,23 +155,19 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Agama" class=" control-label col-md-4 text-left"> Agama </label>
+										<label for="No Tlp" class=" control-label col-md-4 text-left"> No Tlp </label>
 										<div class="col-md-6">
-										  
-					<?php $agama = explode(',',$row['agama']);
-					$agama_opt = array( 'Islam' => 'Islam' ,  'Kristen Katolik' => 'Kristen Katolik' ,  'Kristen Protestan' => 'Kristen Protestan' ,  'Hindu' => 'Hindu' ,  'Budha' => 'Budha' , ); ?>
-					<select name='agama' rows='5'   class='select2 '  > 
-						<?php 
-						foreach($agama_opt as $key=>$val)
-						{
-							echo "<option  value ='$key' ".($row['agama'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
-						}						
-						?></select> 
+										  <?php echo Form::text('no_tlp', $row['no_tlp'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 					
+									  </div> </fieldset>
+			</div>
+			
+			<div class="col-md-4">
+						<fieldset><legend> Info Tambahan</legend>
+									
 									  <div class="form-group  " >
 										<label for="Tgl Daftar" class=" control-label col-md-4 text-left"> Tgl Daftar </label>
 										<div class="col-md-6">
@@ -173,70 +178,6 @@
 					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 				</div>
 				 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="No Tlp" class=" control-label col-md-4 text-left"> No Tlp </label>
-										<div class="col-md-6">
-										  <?php echo Form::text('no_tlp', $row['no_tlp'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Umur" class=" control-label col-md-4 text-left"> Umur </label>
-										<div class="col-md-6">
-										  <?php echo Form::text('umur', $row['umur'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="PDD Terakhir" class=" control-label col-md-4 text-left"> PDD Terakhir </label>
-										<div class="col-md-6">
-										  
-					<?php $pnd = explode(',',$row['pnd']);
-					$pnd_opt = array( '-' => '-' ,  'SD' => 'SD' ,  'SMP' => 'SMP' ,  'SMA' => 'SMA' ,  'D1' => 'D1' ,  'D2' => 'D2' ,  'D3' => 'D3' ,  'D4' => 'D4' ,  'S1' => 'S1' ,  'S2' => 'S2' ,  'S3' => 'S3' , ); ?>
-					<select name='pnd' rows='5'   class='select2 '  > 
-						<?php 
-						foreach($pnd_opt as $key=>$val)
-						{
-							echo "<option  value ='$key' ".($row['pnd'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
-						}						
-						?></select> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Penanggung Jawab" class=" control-label col-md-4 text-left"> Penanggung Jawab </label>
-										<div class="col-md-6">
-										  
-					<label class='radio radio-inline'>
-					<input type='radio' name='keluarga' value ='Ayah'  <?php if($row['keluarga'] == 'Ayah'): ?> checked="checked" <?php endif; ?> > Ayah </label>
-					<label class='radio radio-inline'>
-					<input type='radio' name='keluarga' value ='Ibu'  <?php if($row['keluarga'] == 'Ibu'): ?> checked="checked" <?php endif; ?> > Ibu </label>
-					<label class='radio radio-inline'>
-					<input type='radio' name='keluarga' value ='Istri'  <?php if($row['keluarga'] == 'Istri'): ?> checked="checked" <?php endif; ?> > Istri </label>
-					<label class='radio radio-inline'>
-					<input type='radio' name='keluarga' value ='Suami'  <?php if($row['keluarga'] == 'Suami'): ?> checked="checked" <?php endif; ?> > Suami </label>
-					<label class='radio radio-inline'>
-					<input type='radio' name='keluarga' value ='Saudara'  <?php if($row['keluarga'] == 'Saudara'): ?> checked="checked" <?php endif; ?> > Saudara </label> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Nama PNJ" class=" control-label col-md-4 text-left"> Nama PNJ <span class="asterix"> * </span></label>
-										<div class="col-md-6">
-										  <?php echo Form::text('namakeluarga', $row['namakeluarga'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -261,9 +202,36 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Kelurahan" class=" control-label col-md-4 text-left"> Kelurahan </label>
+										<label for="Nama Ibu" class=" control-label col-md-4 text-left"> Nama Ibu </label>
 										<div class="col-md-6">
-										  <select name='kd_kel' rows='5' id='kd_kel' class='select2 '   ></select> 
+										  <?php echo Form::text('nm_ibu', $row['nm_ibu'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="PDD Terakhir" class=" control-label col-md-4 text-left"> PDD Terakhir </label>
+										<div class="col-md-6">
+										  
+					<?php $pnd = explode(',',$row['pnd']);
+					$pnd_opt = array( '-' => '-' ,  'SD' => 'SD' ,  'SMP' => 'SMP' ,  'SMA' => 'SMA' ,  'D1' => 'D1' ,  'D2' => 'D2' ,  'D3' => 'D3' ,  'D4' => 'D4' ,  'S1' => 'S1' ,  'S2' => 'S2' ,  'S3' => 'S3' , ); ?>
+					<select name='pnd' rows='5'   class='select2 '  > 
+						<?php 
+						foreach($pnd_opt as $key=>$val)
+						{
+							echo "<option  value ='$key' ".($row['pnd'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
+						}						
+						?></select> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Kabupaten/Kota" class=" control-label col-md-4 text-left"> Kabupaten/Kota </label>
+										<div class="col-md-6">
+										  <select name='kd_kab' rows='5' id='kd_kab' class='select2 '   ></select> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -279,9 +247,52 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Kabupaten" class=" control-label col-md-4 text-left"> Kabupaten </label>
+										<label for="Kelurahan" class=" control-label col-md-4 text-left"> Kelurahan </label>
 										<div class="col-md-6">
-										  <select name='kd_kab' rows='5' id='kd_kab' class='select2 '   ></select> 
+										  <select name='kd_kel' rows='5' id='kd_kel' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Alamat" class=" control-label col-md-4 text-left"> Alamat </label>
+										<div class="col-md-6">
+										  <textarea name='alamat' rows='5' id='alamat' class='form-control '  
+				           ><?php echo e($row['alamat']); ?></textarea> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> </fieldset>
+			</div>
+			
+			<div class="col-md-4">
+						<fieldset><legend> Info Penanggung Jawab</legend>
+									
+									  <div class="form-group  " >
+										<label for="Penanggung Jawab" class=" control-label col-md-4 text-left"> Penanggung Jawab <span class="asterix"> * </span></label>
+										<div class="col-md-6">
+										  
+					<label class='radio radio-inline'>
+					<input type='radio' name='keluarga' value ='Ayah' required <?php if($row['keluarga'] == 'Ayah'): ?> checked="checked" <?php endif; ?> > Ayah </label>
+					<label class='radio radio-inline'>
+					<input type='radio' name='keluarga' value ='Ibu' required <?php if($row['keluarga'] == 'Ibu'): ?> checked="checked" <?php endif; ?> > Ibu </label>
+					<label class='radio radio-inline'>
+					<input type='radio' name='keluarga' value ='Istri' required <?php if($row['keluarga'] == 'Istri'): ?> checked="checked" <?php endif; ?> > Istri </label>
+					<label class='radio radio-inline'>
+					<input type='radio' name='keluarga' value ='Suami' required <?php if($row['keluarga'] == 'Suami'): ?> checked="checked" <?php endif; ?> > Suami </label>
+					<label class='radio radio-inline'>
+					<input type='radio' name='keluarga' value ='Saudara' required <?php if($row['keluarga'] == 'Saudara'): ?> checked="checked" <?php endif; ?> > Saudara </label> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Nama PNJ" class=" control-label col-md-4 text-left"> Nama PNJ <span class="asterix"> * </span></label>
+										<div class="col-md-6">
+										  <?php echo Form::text('namakeluarga', $row['namakeluarga'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -297,18 +308,9 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Alamat PNJ" class=" control-label col-md-4 text-left"> Alamat PNJ </label>
+										<label for="Kabupaten/Kota PNJ" class=" control-label col-md-4 text-left"> Kabupaten/Kota PNJ </label>
 										<div class="col-md-6">
-										  <?php echo Form::text('alamatpj', $row['alamatpj'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Kelurahan PNJ" class=" control-label col-md-4 text-left"> Kelurahan PNJ </label>
-										<div class="col-md-6">
-										  <?php echo Form::text('kelurahanpj', $row['kelurahanpj'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+										  <select name='kabupatenpj' rows='5' id='kabupatenpj' class='select2 '   ></select> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -317,16 +319,26 @@
 									  <div class="form-group  " >
 										<label for="Kecamatan PNJ" class=" control-label col-md-4 text-left"> Kecamatan PNJ </label>
 										<div class="col-md-6">
-										  <?php echo Form::text('kecamatanpj', $row['kecamatanpj'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+										  <select name='kecamatanpj' rows='5' id='kecamatanpj' class='select2 '   ></select> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Kabupaten PNJ" class=" control-label col-md-4 text-left"> Kabupaten PNJ </label>
+										<label for="Kelurahan PNJ" class=" control-label col-md-4 text-left"> Kelurahan PNJ </label>
 										<div class="col-md-6">
-										  <?php echo Form::text('kabupatenpj', $row['kabupatenpj'],array('class'=>'form-control', 'placeholder'=>'',   )); ?> 
+										  <select name='kelurahanpj' rows='5' id='kelurahanpj' class='select2 '   ></select> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Alamat PNJ" class=" control-label col-md-4 text-left"> Alamat PNJ </label>
+										<div class="col-md-6">
+										  <textarea name='alamatpj' rows='5' id='alamatpj' class='form-control '  
+				           ><?php echo e($row['alamatpj']); ?></textarea> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -364,14 +376,23 @@ $(document).ready(function() {
 		$("#kd_pj").jCombo("<?php echo url('pasien/comboselect?filter=penjab:kd_pj:png_jawab'); ?>",
 		{  selected_value : '<?php echo e($row["kd_pj"]); ?>' });
 		
-		$("#kd_kel").jCombo("<?php echo url('pasien/comboselect?filter=kelurahan:id:name'); ?>&parent=district_id:",
-		{  parent: '#district_id', selected_value : '<?php echo e($row["kd_kel"]); ?>' });
+		$("#kd_kab").jCombo("<?php echo url('pasien/comboselect?filter=kabupaten:id:name'); ?>",
+		{  selected_value : '<?php echo e($row["kd_kab"]); ?>' });
 		
 		$("#kd_kec").jCombo("<?php echo url('pasien/comboselect?filter=kecamatan:id:name'); ?>&parent=kd_kab:",
 		{  parent: '#kd_kab', selected_value : '<?php echo e($row["kd_kec"]); ?>' });
 		
-		$("#kd_kab").jCombo("<?php echo url('pasien/comboselect?filter=kabupaten:id:name'); ?>",
-		{  selected_value : '<?php echo e($row["kd_kab"]); ?>' });
+		$("#kd_kel").jCombo("<?php echo url('pasien/comboselect?filter=kelurahan:id:name'); ?>&parent=kd_kec:",
+		{  parent: '#kd_kec', selected_value : '<?php echo e($row["kd_kel"]); ?>' });
+		
+		$("#kabupatenpj").jCombo("<?php echo url('pasien/comboselect?filter=kabupaten_pnj:id:name'); ?>",
+		{  selected_value : '<?php echo e($row["kabupatenpj"]); ?>' });
+		
+		$("#kecamatanpj").jCombo("<?php echo url('pasien/comboselect?filter=kecamatan_pnj:id:name'); ?>&parent=kabupatenpj:",
+		{  parent: '#kabupatenpj', selected_value : '<?php echo e($row["kecamatanpj"]); ?>' });
+		
+		$("#kelurahanpj").jCombo("<?php echo url('pasien/comboselect?filter=kelurahan_pnj:id:name'); ?>&parent=kecamatanpj:",
+		{  parent: '#kecamatanpj', selected_value : '<?php echo e($row["kelurahanpj"]); ?>' });
 		 
 	
 	$('.editor').summernote();
