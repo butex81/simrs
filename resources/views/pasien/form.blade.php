@@ -92,9 +92,10 @@
 									  </div> 					
 									  <div class="form-group  " >
 										<label for="Umur" class=" control-label col-md-2 text-left"> Umur </label>
-										<div class="col-md-3">
-										  {!! Form::text('umur', $row['umur'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
+										<div class="col-md-2">
+										  {!! Form::text('umur', $row['umur'],array('class'=>'form-control', 'placeholder'=>'',   )) !!}
 										 </div> 
+										 <label for="Umur" class=" control-label col-md-1 text-left"> Thn </label>
 										<label for="PDD Terakhir" class=" control-label col-md-2 text-right"> PDD Terakhir </label>
 										<div class="col-md-3">
 										  
@@ -344,11 +345,11 @@
 <script type="text/javascript">
 $(document).ready(function() { 
 	
-		//$('[name="tgl_lahir"]').change(function() {
-		//	$('[name="umur"]').val(getAge(new Date($('[name="tgl_lahir"]').val())));           
-		//});
-		
-		$("#kd_pj").jCombo("{!! url('pasien/comboselect?filter=penjab:kd_pj:png_jawab') !!}",
+$('input[name="tgl_lahir"]').change(function() {
+   $('input[name="umur"]').val(getAge(new Date($('input[name="tgl_lahir"]').val())));           
+});
+
+	$("#kd_pj").jCombo("{!! url('pasien/comboselect?filter=penjab:kd_pj:png_jawab') !!}",
 		{  selected_value : '{{ $row["kd_pj"] }}' });
 		
 		$("#kd_kab").jCombo("{!! url('pasien/comboselect?filter=kabupaten:id:name') !!}",
@@ -428,13 +429,6 @@ function showResponse(data)  {
 	}	
 }			 
 
-function hitungUmur() {
-    //console.log ($("input[name=tgl_lahir]").val());
-	//var y = $("input[name=tgl_lahir]").val();
-	//var x = "<?php echo Carbon::parse($row['tgl_lahir'])->age; ?>";
-    //$("input[name=umur]").val(x);
-}
-
 function getAge(birthDate) {
     var now = new Date();
 
@@ -454,6 +448,10 @@ function getAge(birthDate) {
             // increment the age only if there are available enough days for the year.
             }
      }
+
      return age;
-}    
+    //console.log ($("input[name=tgl_lahir]").val());
+	//var x = $("input[name=tgl_lahir]").val();
+    //$("input[name=umur]").val(age);
+}
 </script>		 
