@@ -5,6 +5,7 @@ use App\Models\Pasien;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
+use Carbon\Carbon;
 
 class PasienController extends Controller {
 
@@ -28,7 +29,6 @@ class PasienController extends Controller {
 			'pageUrl'			=>  url('pasien'),
 			'return' 			=> 	self::returnUrl()	
 		);		
-				
 	} 
 	
 	public function getIndex()
@@ -36,7 +36,7 @@ class PasienController extends Controller {
 		if($this->access['is_view'] ==0) 
 			return Redirect::to('dashboard')->with('messagetext',\Lang::get('core.note_restric'))->with('msgstatus','error');
 				
-		$this->data['access']		= $this->access;	
+		$this->data['access']		= $this->access;
 		return view('pasien.index',$this->data);
 	}	
 
@@ -123,7 +123,6 @@ class PasienController extends Controller {
 		$this->data['fields'] 		=  \AjaxHelpers::fieldLang($this->info['config']['forms']);
 		
 		$this->data['id'] = $id;
-
 		return view('pasien.form',$this->data);
 	}	
 
@@ -194,13 +193,26 @@ class PasienController extends Controller {
 		$rules = $this->validateForm();
 		$validator = Validator::make($request->all(), $rules);	
 		if ($validator->passes()) {
+			$cekPost = $request->input('no_rkm_medis');
 			$data = $this->validatePost('pasien');
 			
 			$id = $this->model->insertRow($data , $request->input('id'));
 			
+			if( $cekPost == '' )
+			{
+					$result = \DB::table('set_no_urut')->select('pasien')->first();
+					$urutSql = $result->pasien + 1;
+					\DB::update("UPDATE set_no_urut set pasien=".$urutSql);
+					$urutSql = str_pad($urutSql, 7, '0', STR_PAD_LEFT); 
+					$waktuRekam = Carbon::now()->format('YmdHis');
+					$urutSql = $waktuRekam.$urutSql;
+					$affected = \DB::table('pasien')->where('id','=', $id)
+								->update(array('no_rkm_medis'=> $urutSql));
+			}	
+			
 			return response()->json(array(
 				'status'=>'success',
-				'message'=> \Lang::get('core.note_success')
+				'message'=> \Lang::get('core.note_success').$id
 				));	
 			
 		} else {

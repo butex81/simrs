@@ -14,8 +14,8 @@
 						<fieldset><legend> Info Pasien</legend>
 				{!! Form::hidden('id', $row['id']) !!}					
 									  <div class="form-group  " >
-										<label for="No Rekam Medis" class=" control-label col-md-4 text-left"> No Rekam Medis </label>
-										<div class="col-md-6">
+										<label for="No Rekam Medis" class=" control-label col-md-2 text-left"> No Rekam Medis </label>
+										<div class="col-md-8">
 										  {!! Form::text('no_rkm_medis', $row['no_rkm_medis'],array('class'=>'form-control', 'placeholder'=>'', 'readonly'   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
@@ -23,8 +23,8 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="No KTP" class=" control-label col-md-4 text-left"> No KTP <span class="asterix"> * </span></label>
-										<div class="col-md-6">
+										<label for="No KTP" class=" control-label col-md-2 text-left"> No KTP <span class="asterix"> * </span></label>
+										<div class="col-md-8">
 										  {!! Form::text('no_ktp', $row['no_ktp'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
@@ -32,8 +32,8 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Nama Pasien" class=" control-label col-md-4 text-left"> Nama Pasien <span class="asterix"> * </span></label>
-										<div class="col-md-6">
+										<label for="Nama Pasien" class=" control-label col-md-2 text-left"> Nama Pasien <span class="asterix"> * </span></label>
+										<div class="col-md-8">
 										  {!! Form::text('nm_pasien', $row['nm_pasien'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
@@ -41,8 +41,8 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Jenis Kelamin" class=" control-label col-md-4 text-left"> Jenis Kelamin </label>
-										<div class="col-md-6">
+										<label for="Jenis Kelamin" class=" control-label col-md-2 text-left"> Jenis Kelamin </label>
+										<div class="col-md-3">
 										  
 					<?php $jk = explode(',',$row['jk']);
 					$jk_opt = array( 'L' => 'Laki - Laki' ,  'P' => 'Perempuan' , ); ?>
@@ -54,13 +54,10 @@
 						}						
 						?></select> 
 										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Gol Darah" class=" control-label col-md-4 text-left"> Gol Darah </label>
-										<div class="col-md-6">
+
+
+										 <label for="Gol Darah" class=" control-label col-md-2 text-right"> Gol Darah </label>
+										<div class="col-md-3">
 										  
 					<?php $gol_darah = explode(',',$row['gol_darah']);
 					$gol_darah_opt = array( 'A' => 'A' ,  'B' => 'B' ,  'AB' => 'AB' ,  'O' => 'O' , ); ?>
@@ -72,22 +69,17 @@
 						}						
 						?></select> 
 										 </div> 
-										 <div class="col-md-2">
+										 <div class="col-md-1">
 										 	
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Tempat Lahir" class=" control-label col-md-4 text-left"> Tempat Lahir </label>
-										<div class="col-md-6">
+										<label for="Tempat Lahir" class=" control-label col-md-2 text-left"> Tempat Lahir </label>
+										<div class="col-md-3">
 										  {!! Form::text('tmp_lahir', $row['tmp_lahir'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Tgl Lahir" class=" control-label col-md-4 text-left"> Tgl Lahir <span class="asterix"> * </span></label>
-										<div class="col-md-6">
+										<label for="Tgl Lahir" class=" control-label col-md-2 text-right"> Tgl Lahir <span class="asterix"> * </span></label>
+										<div class="col-md-3">
 										  
 				<div class="input-group m-b" style="width:150px !important;">
 					{!! Form::text('tgl_lahir', $row['tgl_lahir'],array('class'=>'form-control date')) !!}
@@ -99,17 +91,12 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Umur" class=" control-label col-md-4 text-left"> Umur </label>
-										<div class="col-md-6">
+										<label for="Umur" class=" control-label col-md-2 text-left"> Umur </label>
+										<div class="col-md-3">
 										  {!! Form::text('umur', $row['umur'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="PDD Terakhir" class=" control-label col-md-4 text-left"> PDD Terakhir </label>
-										<div class="col-md-6">
+										<label for="PDD Terakhir" class=" control-label col-md-2 text-right"> PDD Terakhir </label>
+										<div class="col-md-3">
 										  
 					<?php $pnd = explode(',',$row['pnd']);
 					$pnd_opt = array( '-' => '-' ,  'SD' => 'SD' ,  'SMP' => 'SMP' ,  'SMA' => 'SMA' ,  'D1' => 'D1' ,  'D2' => 'D2' ,  'D3' => 'D3' ,  'D4' => 'D4' ,  'S1' => 'S1' ,  'S2' => 'S2' ,  'S3' => 'S3' , ); ?>
@@ -120,14 +107,14 @@
 							echo "<option  value ='$key' ".($row['pnd'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
 						}						
 						?></select> 
-										 </div> 
+										 </div>
 										 <div class="col-md-2">
 										 	
 										 </div>
 									  </div> 					
-									  <div class="form-group  " >
-										<label for="Agama" class=" control-label col-md-4 text-left"> Agama </label>
-										<div class="col-md-6">
+									  <div class="form-group  " >									 
+										<label for="Agama" class=" control-label col-md-2 text-left"> Agama </label>
+										<div class="col-md-3">
 										  
 					<?php $agama = explode(',',$row['agama']);
 					$agama_opt = array( 'Islam' => 'Islam' ,  'Kristen Katolik' => 'Kristen Katolik' ,  'Kristen Protestan' => 'Kristen Protestan' ,  'Hindu' => 'Hindu' ,  'Budha' => 'Budha' , ); ?>
@@ -139,22 +126,8 @@
 						}						
 						?></select> 
 										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Pekerjaan" class=" control-label col-md-4 text-left"> Pekerjaan </label>
-										<div class="col-md-6">
-										  {!! Form::text('pekerjaan', $row['pekerjaan'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Stts Nikah" class=" control-label col-md-4 text-left"> Stts Nikah </label>
-										<div class="col-md-6">
+										<label for="Stts Nikah" class=" control-label col-md-2 text-right"> Stts Nikah </label>
+										<div class="col-md-3">
 										  
 					<?php $stts_nikah = explode(',',$row['stts_nikah']);
 					$stts_nikah_opt = array( 'Single' => 'Single' ,  'Menikah' => 'Menikah' ,  'Duda' => 'Duda/Janda' , ); ?>
@@ -169,36 +142,75 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
+									  </div>
+									  <div class="form-group  " >
+										<label for="Pekerjaan" class=" control-label col-md-2 text-left"> Pekerjaan </label>
+										<div class="col-md-8">
+										  {!! Form::text('pekerjaan', $row['pekerjaan'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="No Tlp" class=" control-label col-md-4 text-left"> No Tlp </label>
-										<div class="col-md-6">
+										<label for="No Tlp" class=" control-label col-md-2 text-left"> No Tlp </label>
+										<div class="col-md-8">
 										  {!! Form::text('no_tlp', $row['no_tlp'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> </fieldset>
+									  </div> 
+									  <div class="form-group  " >
+										<label for="Alamat" class=" control-label col-md-2 text-left"> Alamat </label>
+										<div class="col-md-8">
+										  <textarea name='alamat' rows='5' id='alamat' class='form-control '  
+				           >{{ $row['alamat'] }}</textarea> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										 <div class="col-md-2">
+										 	
+										 </div>
+										<label for="Kabupaten/Kota" class=" control-label col-md-2 text-left"> Kabupaten/Kota </label>
+										<div class="col-md-6">
+										  <select name='kd_kab' rows='5' id='kd_kab' class='select2 '   ></select> 
+										 </div> 
+									  </div> 					
+									  <div class="form-group  " >
+										 <div class="col-md-2">
+										 	
+										 </div>
+										<label for="Kecamatan" class=" control-label col-md-2 text-left"> Kecamatan </label>
+										<div class="col-md-6">
+										  <select name='kd_kec' rows='5' id='kd_kec' class='select2 '   ></select> 
+										 </div> 
+									  </div> 					
+									  <div class="form-group  " >
+										 <div class="col-md-2">
+										 	
+										 </div>
+										<label for="Kelurahan" class=" control-label col-md-2 text-left"> Kelurahan </label>
+										<div class="col-md-6">
+										  <select name='kd_kel' rows='5' id='kd_kel' class='select2 '   ></select> 
+										 </div> 
+									  </div> 					
+									  </fieldset>
 			</div>
 			
 			<div class="col-md-6">
 						<fieldset><legend> Info Tambahan</legend>
 									
 									  <div class="form-group  " >
-										<label for="Nama Ibu" class=" control-label col-md-4 text-left"> Nama Ibu </label>
-										<div class="col-md-6">
-										  {!! Form::text('nm_ibu', $row['nm_ibu'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Tgl Daftar" class=" control-label col-md-4 text-left"> Tgl Daftar </label>
-										<div class="col-md-6">
+										<label for="Tgl Daftar" class=" control-label col-md-2 text-left"> Tgl Daftar </label>
+										<div class="col-md-8">
 										  
 				<div class="input-group m-b" style="width:150px !important;">
-					{!! Form::text('tgl_daftar', $row['tgl_daftar'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) !!}
+					{!! Form::text('tgl_daftar', ($row['tgl_daftar'] == '' ? Carbon\Carbon::now() : $row['tgl_daftar']),array('class'=>'form-control datetime', 'style'=>'width:150px !important;', 'readonly')) !!}
+					
 					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 				</div>
 				 
@@ -208,17 +220,21 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Asuransi" class=" control-label col-md-4 text-left"> Asuransi </label>
-										<div class="col-md-6">
-										  <select name='kd_pj' rows='5' id='kd_pj' class='select2 '   ></select> 
+										<label for="Nama Ibu" class=" control-label col-md-2 text-left"> Nama Ibu </label>
+										<div class="col-md-8">
+										  {!! Form::text('nm_ibu', $row['nm_ibu'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
 										 	
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="No Kepesertaan" class=" control-label col-md-4 text-left"> No Kepesertaan </label>
-										<div class="col-md-6">
+										<label for="Asuransi" class=" control-label col-md-2 text-left"> Asuransi </label>
+										<div class="col-md-3">
+										  <select name='kd_pj' rows='5' id='kd_pj' class='select2 '   ></select> 
+										 </div> 
+										<label for="No Kepesertaan" class=" control-label col-md-2 text-right"> No Kepesertaan </label>
+										<div class="col-md-3">
 										  {!! Form::text('no_peserta', $row['no_peserta'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
@@ -226,45 +242,8 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Kabupaten/Kota" class=" control-label col-md-4 text-left"> Kabupaten/Kota </label>
-										<div class="col-md-6">
-										  <select name='kd_kab' rows='5' id='kd_kab' class='select2 '   ></select> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Kecamatan" class=" control-label col-md-4 text-left"> Kecamatan </label>
-										<div class="col-md-6">
-										  <select name='kd_kec' rows='5' id='kd_kec' class='select2 '   ></select> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Kelurahan" class=" control-label col-md-4 text-left"> Kelurahan </label>
-										<div class="col-md-6">
-										  <select name='kd_kel' rows='5' id='kd_kel' class='select2 '   ></select> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Alamat" class=" control-label col-md-4 text-left"> Alamat </label>
-										<div class="col-md-6">
-										  <textarea name='alamat' rows='5' id='alamat' class='form-control '  
-				           >{{ $row['alamat'] }}</textarea> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Penanggung Jawab" class=" control-label col-md-4 text-left"> Penanggung Jawab <span class="asterix"> * </span></label>
-										<div class="col-md-6">
+										<label for="Penanggung Jawab" class=" control-label col-md-2 text-left"> Penanggung Jawab <span class="asterix"> * </span></label>
+										<div class="col-md-8">
 										  
 					<label class='radio radio-inline'>
 					<input type='radio' name='keluarga' value ='Ayah' required @if($row['keluarga'] == 'Ayah') checked="checked" @endif > Ayah </label>
@@ -282,8 +261,8 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Nama PNJ" class=" control-label col-md-4 text-left"> Nama PNJ <span class="asterix"> * </span></label>
-										<div class="col-md-6">
+										<label for="Nama PNJ" class=" control-label col-md-2 text-left"> Nama PNJ <span class="asterix"> * </span></label>
+										<div class="col-md-8">
 										  {!! Form::text('namakeluarga', $row['namakeluarga'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
@@ -291,8 +270,8 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Pekerjaan PNJ" class=" control-label col-md-4 text-left"> Pekerjaan PNJ </label>
-										<div class="col-md-6">
+										<label for="Pekerjaan PNJ" class=" control-label col-md-2 text-left"> Pekerjaan PNJ </label>
+										<div class="col-md-8">
 										  {!! Form::text('pekerjaanpj', $row['pekerjaanpj'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
@@ -300,42 +279,43 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Kabupaten/Kota PNJ" class=" control-label col-md-4 text-left"> Kabupaten/Kota PNJ </label>
-										<div class="col-md-6">
-										  <select name='kabupatenpj' rows='5' id='kabupatenpj' class='select2 '   ></select> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Kecamatan PNJ" class=" control-label col-md-4 text-left"> Kecamatan PNJ </label>
-										<div class="col-md-6">
-										  <select name='kecamatanpj' rows='5' id='kecamatanpj' class='select2 '   ></select> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Kelurahan PNJ" class=" control-label col-md-4 text-left"> Kelurahan PNJ </label>
-										<div class="col-md-6">
-										  <select name='kelurahanpj' rows='5' id='kelurahanpj' class='select2 '   ></select> 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Alamat PNJ" class=" control-label col-md-4 text-left"> Alamat PNJ </label>
-										<div class="col-md-6">
+										<label for="Alamat PNJ" class=" control-label col-md-2 text-left"> Alamat PNJ </label>
+										<div class="col-md-8">
 										  <textarea name='alamatpj' rows='5' id='alamatpj' class='form-control '  
 				           >{{ $row['alamatpj'] }}</textarea> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> </fieldset>
+									  </div> 
+									  <div class="form-group  " >
+										 <div class="col-md-2">
+										 	
+										 </div>
+										<label for="Kabupaten/Kota PNJ" class=" control-label col-md-2 text-left"> Kabupaten/Kota PNJ </label>
+										<div class="col-md-6">
+										  <select name='kabupatenpj' rows='5' id='kabupatenpj' class='select2 '   ></select> 
+										 </div> 
+									  </div> 					
+									  <div class="form-group  " >
+										 <div class="col-md-2">
+										 	
+										 </div>
+										<label for="Kecamatan PNJ" class=" control-label col-md-2 text-left"> Kecamatan PNJ </label>
+										<div class="col-md-6">
+										  <select name='kecamatanpj' rows='5' id='kecamatanpj' class='select2 '   ></select> 
+										 </div> 
+									  </div> 					
+									  <div class="form-group  " >
+										 <div class="col-md-2">
+										 	
+										 </div>
+										<label for="Kelurahan PNJ" class=" control-label col-md-2 text-left"> Kelurahan PNJ </label>
+										<div class="col-md-6">
+										  <select name='kelurahanpj' rows='5' id='kelurahanpj' class='select2 '   ></select> 
+										 </div> 
+									  </div> 					
+									  </fieldset>
 			</div>
 			
 												
@@ -344,8 +324,8 @@
 			<div style="clear:both"></div>	
 							
 			<div class="form-group">
-				<label class="col-sm-4 text-right">&nbsp;</label>
-				<div class="col-sm-8">	
+				<label class="col-sm-6 text-right">&nbsp;</label>
+				<div class="col-sm-6">	
 					<button type="submit" class="btn btn-primary btn-sm "><i class="icon-checkmark-circle2"></i>  {{ Lang::get('core.sb_save') }} </button>
 					<button type="button" onclick="ajaxViewClose('#{{ $pageModule }}')" class="btn btn-success btn-sm"><i class="icon-cancel-circle2 "></i>  {{ Lang::get('core.sb_cancel') }} </button>
 				</div>			
@@ -364,6 +344,10 @@
 <script type="text/javascript">
 $(document).ready(function() { 
 	
+		//$('[name="tgl_lahir"]').change(function() {
+		//	$('[name="umur"]').val(getAge(new Date($('[name="tgl_lahir"]').val())));           
+		//});
+		
 		$("#kd_pj").jCombo("{!! url('pasien/comboselect?filter=penjab:kd_pj:png_jawab') !!}",
 		{  selected_value : '{{ $row["kd_pj"] }}' });
 		
@@ -444,4 +428,32 @@ function showResponse(data)  {
 	}	
 }			 
 
+function hitungUmur() {
+    //console.log ($("input[name=tgl_lahir]").val());
+	//var y = $("input[name=tgl_lahir]").val();
+	//var x = "<?php echo Carbon::parse($row['tgl_lahir'])->age; ?>";
+    //$("input[name=umur]").val(x);
+}
+
+function getAge(birthDate) {
+    var now = new Date();
+
+    function isLeap(year) {
+          return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+    }
+
+    // days since the birthdate    
+    var days = Math.floor((now.getTime() - birthDate.getTime())/1000/60/60/24);
+    var age = 0;
+    // iterate the years
+    for (var y = birthDate.getFullYear(); y <= now.getFullYear(); y++){
+        var daysInYear = isLeap(y) ? 366 : 365;
+        if (days >= daysInYear){
+            days -= daysInYear;
+            age++;
+            // increment the age only if there are available enough days for the year.
+            }
+     }
+     return age;
+}    
 </script>		 
