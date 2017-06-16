@@ -194,9 +194,21 @@ class SpesialisController extends Controller {
 		$rules = $this->validateForm();
 		$validator = Validator::make($request->all(), $rules);	
 		if ($validator->passes()) {
+			$cekPost = $request->input('kd_sps');
 			$data = $this->validatePost('spesialis');
 			
 			$id = $this->model->insertRow($data , $request->input('id'));
+			
+			if( $cekPost == '' )
+			{
+					$result = \DB::table('set_no_urut')->select('spesialis')->first();
+					$urutSql = $result->spesialis + 1;
+					\DB::update("UPDATE set_no_urut set spesialis=".$urutSql);
+					$urutSql = str_pad($urutSql, 3, '0', STR_PAD_LEFT); 
+					$urutSql = 'S'.$urutSql;
+					$affected = \DB::table('spesialis')->where('id','=', $id)
+								->update(array('kd_sps'=> $urutSql));
+			}	
 			
 			return response()->json(array(
 				'status'=>'success',

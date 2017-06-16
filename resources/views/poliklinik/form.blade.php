@@ -16,7 +16,7 @@
 									  <div class="form-group  " >
 										<label for="Kode Unit/Poliklinik" class=" control-label col-md-4 text-left"> Kode Unit/Poliklinik </label>
 										<div class="col-md-6">
-										  {!! Form::text('kd_poli', $row['kd_poli'],array('class'=>'form-control', 'placeholder'=>'', 'disabled'   )) !!} 
+										  {!! Form::text('kd_poli', $row['kd_poli'],array('class'=>'form-control', 'placeholder'=>'', 'readonly'   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
 										 	

@@ -194,9 +194,21 @@ class DokterController extends Controller {
 		$rules = $this->validateForm();
 		$validator = Validator::make($request->all(), $rules);	
 		if ($validator->passes()) {
+			$cekPost = $request->input('kd_dokter');
 			$data = $this->validatePost('dokter');
 			
 			$id = $this->model->insertRow($data , $request->input('id'));
+			
+			if( $cekPost == '' )
+			{
+					$result = \DB::table('set_no_urut')->select('dokter')->first();
+					$urutSql = $result->dokter + 1;
+					\DB::update("UPDATE set_no_urut set dokter=".$urutSql);
+					$urutSql = str_pad($urutSql, 3, '0', STR_PAD_LEFT); 
+					$urutSql = 'D'.$urutSql;
+					$affected = \DB::table('dokter')->where('id','=', $id)
+								->update(array('kd_dokter'=> $urutSql));
+			}	
 			
 			return response()->json(array(
 				'status'=>'success',

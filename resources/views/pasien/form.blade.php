@@ -10,22 +10,13 @@
 	<div class="sbox-content"> 
 @endif	
 			{!! Form::open(array('url'=>'pasien/save/'.SiteHelpers::encryptID($row['id']), 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ','id'=> 'pasienFormAjax')) !!}
-			<div class="col-md-4">
+			<div class="col-md-6">
 						<fieldset><legend> Info Pasien</legend>
 				{!! Form::hidden('id', $row['id']) !!}					
 									  <div class="form-group  " >
 										<label for="No Rekam Medis" class=" control-label col-md-4 text-left"> No Rekam Medis </label>
 										<div class="col-md-6">
-										  {!! Form::text('no_rkm_medis', $row['no_rkm_medis'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Nama Pasien" class=" control-label col-md-4 text-left"> Nama Pasien <span class="asterix"> * </span></label>
-										<div class="col-md-6">
-										  {!! Form::text('nm_pasien', $row['nm_pasien'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
+										  {!! Form::text('no_rkm_medis', $row['no_rkm_medis'],array('class'=>'form-control', 'placeholder'=>'', 'readonly'   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -35,6 +26,15 @@
 										<label for="No KTP" class=" control-label col-md-4 text-left"> No KTP <span class="asterix"> * </span></label>
 										<div class="col-md-6">
 										  {!! Form::text('no_ktp', $row['no_ktp'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true', 'parsley-type'=>'number'   )) !!} 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Nama Pasien" class=" control-label col-md-4 text-left"> Nama Pasien <span class="asterix"> * </span></label>
+										<div class="col-md-6">
+										  {!! Form::text('nm_pasien', $row['nm_pasien'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -51,6 +51,24 @@
 						foreach($jk_opt as $key=>$val)
 						{
 							echo "<option  value ='$key' ".($row['jk'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
+						}						
+						?></select> 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Gol Darah" class=" control-label col-md-4 text-left"> Gol Darah </label>
+										<div class="col-md-6">
+										  
+					<?php $gol_darah = explode(',',$row['gol_darah']);
+					$gol_darah_opt = array( 'A' => 'A' ,  'B' => 'B' ,  'AB' => 'AB' ,  'O' => 'O' , ); ?>
+					<select name='gol_darah' rows='5'   class='select2 '  > 
+						<?php 
+						foreach($gol_darah_opt as $key=>$val)
+						{
+							echo "<option  value ='$key' ".($row['gol_darah'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
 						}						
 						?></select> 
 										 </div> 
@@ -90,16 +108,16 @@
 										 </div>
 									  </div> 					
 									  <div class="form-group  " >
-										<label for="Gol Darah" class=" control-label col-md-4 text-left"> Gol Darah </label>
+										<label for="PDD Terakhir" class=" control-label col-md-4 text-left"> PDD Terakhir </label>
 										<div class="col-md-6">
 										  
-					<?php $gol_darah = explode(',',$row['gol_darah']);
-					$gol_darah_opt = array( 'A' => 'A' ,  'B' => 'B' ,  'AB' => 'AB' ,  'O' => 'O' , ); ?>
-					<select name='gol_darah' rows='5'   class='select2 '  > 
+					<?php $pnd = explode(',',$row['pnd']);
+					$pnd_opt = array( '-' => '-' ,  'SD' => 'SD' ,  'SMP' => 'SMP' ,  'SMA' => 'SMA' ,  'D1' => 'D1' ,  'D2' => 'D2' ,  'D3' => 'D3' ,  'D4' => 'D4' ,  'S1' => 'S1' ,  'S2' => 'S2' ,  'S3' => 'S3' , ); ?>
+					<select name='pnd' rows='5'   class='select2 '  > 
 						<?php 
-						foreach($gol_darah_opt as $key=>$val)
+						foreach($pnd_opt as $key=>$val)
 						{
-							echo "<option  value ='$key' ".($row['gol_darah'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
+							echo "<option  value ='$key' ".($row['pnd'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
 						}						
 						?></select> 
 										 </div> 
@@ -163,9 +181,18 @@
 									  </div> </fieldset>
 			</div>
 			
-			<div class="col-md-4">
+			<div class="col-md-6">
 						<fieldset><legend> Info Tambahan</legend>
 									
+									  <div class="form-group  " >
+										<label for="Nama Ibu" class=" control-label col-md-4 text-left"> Nama Ibu </label>
+										<div class="col-md-6">
+										  {!! Form::text('nm_ibu', $row['nm_ibu'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Tgl Daftar" class=" control-label col-md-4 text-left"> Tgl Daftar </label>
 										<div class="col-md-6">
@@ -193,33 +220,6 @@
 										<label for="No Kepesertaan" class=" control-label col-md-4 text-left"> No Kepesertaan </label>
 										<div class="col-md-6">
 										  {!! Form::text('no_peserta', $row['no_peserta'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="Nama Ibu" class=" control-label col-md-4 text-left"> Nama Ibu </label>
-										<div class="col-md-6">
-										  {!! Form::text('nm_ibu', $row['nm_ibu'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
-										 </div> 
-										 <div class="col-md-2">
-										 	
-										 </div>
-									  </div> 					
-									  <div class="form-group  " >
-										<label for="PDD Terakhir" class=" control-label col-md-4 text-left"> PDD Terakhir </label>
-										<div class="col-md-6">
-										  
-					<?php $pnd = explode(',',$row['pnd']);
-					$pnd_opt = array( '-' => '-' ,  'SD' => 'SD' ,  'SMP' => 'SMP' ,  'SMA' => 'SMA' ,  'D1' => 'D1' ,  'D2' => 'D2' ,  'D3' => 'D3' ,  'D4' => 'D4' ,  'S1' => 'S1' ,  'S2' => 'S2' ,  'S3' => 'S3' , ); ?>
-					<select name='pnd' rows='5'   class='select2 '  > 
-						<?php 
-						foreach($pnd_opt as $key=>$val)
-						{
-							echo "<option  value ='$key' ".($row['pnd'] == $key ? " selected='selected' " : '' ).">$val</option>"; 						
-						}						
-						?></select> 
 										 </div> 
 										 <div class="col-md-2">
 										 	
@@ -261,12 +261,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> </fieldset>
-			</div>
-			
-			<div class="col-md-4">
-						<fieldset><legend> Info Penanggung Jawab</legend>
-									
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Penanggung Jawab" class=" control-label col-md-4 text-left"> Penanggung Jawab <span class="asterix"> * </span></label>
 										<div class="col-md-6">

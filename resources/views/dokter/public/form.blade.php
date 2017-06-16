@@ -16,25 +16,16 @@
 
 <div class="col-md-12">
 						<fieldset><legend> Data Dokter</legend>
-				{!! Form::hidden('id', $row['id']) !!}
-				<?php 
-				$limited = isset($fields['kd_dokter']['limited']) ? $fields['kd_dokter']['limited'] :'';
-				if(SiteHelpers::filterColumn($limited )) { ?>
-												
+				{!! Form::hidden('id', $row['id']) !!}					
 									  <div class="form-group  " >
-										<label for="Kode Dokter" class=" control-label col-md-4 text-left"> Kode Dokter <span class="asterix"> * </span></label>
+										<label for="Kode Dokter" class=" control-label col-md-4 text-left"> Kode Dokter </label>
 										<div class="col-md-6">
-										  {!! Form::text('kd_dokter', $row['kd_dokter'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) !!} 
+										  {!! Form::text('kd_dokter', $row['kd_dokter'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
 										 </div> 
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php } ?>
-				<?php 
-				$limited = isset($fields['nm_dokter']['limited']) ? $fields['nm_dokter']['limited'] :'';
-				if(SiteHelpers::filterColumn($limited )) { ?>
-												
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Nama Dokter" class=" control-label col-md-4 text-left"> Nama Dokter <span class="asterix"> * </span></label>
 										<div class="col-md-6">
@@ -43,8 +34,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php } ?>					
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Jenis Kelamin" class=" control-label col-md-4 text-left"> Jenis Kelamin </label>
 										<div class="col-md-6">
@@ -57,11 +47,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php 
-				$limited = isset($fields['tmp_lahir']['limited']) ? $fields['tmp_lahir']['limited'] :'';
-				if(SiteHelpers::filterColumn($limited )) { ?>
-												
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Tempat Lahir" class=" control-label col-md-4 text-left"> Tempat Lahir </label>
 										<div class="col-md-6">
@@ -70,8 +56,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php } ?>					
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Tanggal Lahir" class=" control-label col-md-4 text-left"> Tanggal Lahir </label>
 										<div class="col-md-6">
@@ -101,11 +86,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php 
-				$limited = isset($fields['agama']['limited']) ? $fields['agama']['limited'] :'';
-				if(SiteHelpers::filterColumn($limited )) { ?>
-												
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Agama" class=" control-label col-md-4 text-left"> Agama </label>
 										<div class="col-md-6">
@@ -124,12 +105,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php } ?>
-				<?php 
-				$limited = isset($fields['almt_tgl']['limited']) ? $fields['almt_tgl']['limited'] :'';
-				if(SiteHelpers::filterColumn($limited )) { ?>
-												
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Alamat Tinggal" class=" control-label col-md-4 text-left"> Alamat Tinggal </label>
 										<div class="col-md-6">
@@ -138,12 +114,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php } ?>
-				<?php 
-				$limited = isset($fields['no_telp']['limited']) ? $fields['no_telp']['limited'] :'';
-				if(SiteHelpers::filterColumn($limited )) { ?>
-												
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="No Telp" class=" control-label col-md-4 text-left"> No Telp </label>
 										<div class="col-md-6">
@@ -152,8 +123,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php } ?>					
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Status Nikah" class=" control-label col-md-4 text-left"> Status Nikah </label>
 										<div class="col-md-6">
@@ -168,11 +138,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php 
-				$limited = isset($fields['kd_sps']['limited']) ? $fields['kd_sps']['limited'] :'';
-				if(SiteHelpers::filterColumn($limited )) { ?>
-												
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Kode Spesialis" class=" control-label col-md-4 text-left"> Kode Spesialis </label>
 										<div class="col-md-6">
@@ -181,12 +147,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php } ?>
-				<?php 
-				$limited = isset($fields['alumni']['limited']) ? $fields['alumni']['limited'] :'';
-				if(SiteHelpers::filterColumn($limited )) { ?>
-												
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="Alumni" class=" control-label col-md-4 text-left"> Alumni </label>
 										<div class="col-md-6">
@@ -195,12 +156,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php } ?>
-				<?php 
-				$limited = isset($fields['no_ijn_praktek']['limited']) ? $fields['no_ijn_praktek']['limited'] :'';
-				if(SiteHelpers::filterColumn($limited )) { ?>
-												
+									  </div> 					
 									  <div class="form-group  " >
 										<label for="No Ijin Praktek" class=" control-label col-md-4 text-left"> No Ijin Praktek </label>
 										<div class="col-md-6">
@@ -209,8 +165,7 @@
 										 <div class="col-md-2">
 										 	
 										 </div>
-									  </div> 
-				<?php } ?></fieldset>
+									  </div> </fieldset>
 			</div>
 			
 			

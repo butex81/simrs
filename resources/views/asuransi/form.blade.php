@@ -12,11 +12,20 @@
 			{!! Form::open(array('url'=>'asuransi/save/'.SiteHelpers::encryptID($row['id']), 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ','id'=> 'asuransiFormAjax')) !!}
 			<div class="col-md-12">
 						<fieldset><legend> Data Asuransi</legend>
-				{!! Form::hidden('id', $row['id']) !!}{!! Form::hidden('kd_pj', $row['kd_pj']) !!}					
+				{!! Form::hidden('id', $row['id']) !!}					
 									  <div class="form-group  " >
-										<label for="Nama Asuransi" class=" control-label col-md-4 text-left"> Nama Asuransi </label>
+										<label for="Kode Asuransi" class=" control-label col-md-4 text-left"> Kode Asuransi </label>
 										<div class="col-md-6">
-										  {!! Form::text('png_jawab', $row['png_jawab'],array('class'=>'form-control', 'placeholder'=>'',   )) !!} 
+										  {!! Form::text('kd_pj', $row['kd_pj'],array('class'=>'form-control', 'placeholder'=>'', 'readonly'  )) !!} 
+										 </div> 
+										 <div class="col-md-2">
+										 	
+										 </div>
+									  </div> 					
+									  <div class="form-group  " >
+										<label for="Nama Asuransi" class=" control-label col-md-4 text-left"> Nama Asuransi <span class="asterix"> * </span></label>
+										<div class="col-md-6">
+										  {!! Form::text('png_jawab', $row['png_jawab'],array('class'=>'form-control', 'placeholder'=>'', 'required'=>'true'  )) !!} 
 										 </div> 
 										 <div class="col-md-2">
 										 	
