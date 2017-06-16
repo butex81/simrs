@@ -190,29 +190,29 @@ class AsuransiController extends Controller {
 
 	function postSave( Request $request, $id =0)
 	{
-		
 		$rules = $this->validateForm();
 		$validator = Validator::make($request->all(), $rules);	
 		if ($validator->passes()) {
+			$cekPost = $request->input('kd_pj');
 			$data = $this->validatePost('penjab');
 			
 			$id = $this->model->insertRow($data , $request->input('id'));
 			
-			//if($this->access['is_add'] ==0 )
-			//{
-				$result = \DB::table('set_no_urut')->select('asuransi')->first();
-				$urutSql = $result->asuransi + 1;
-				\DB::update("UPDATE set_no_urut set asuransi=".$urutSql);
-				$urutSql = str_pad($urutSql, 3, '0', STR_PAD_LEFT); 
-				$urutSql = 'A'.$urutSql;
-				\DB::update("UPDATE penjab set kd_pj=".$urutSql." WHERE id='".$id."'");
-			//}
-
+			if( $cekPost == '' )
+			{
+					$result = \DB::table('set_no_urut')->select('asuransi')->first();
+					$urutSql = $result->asuransi + 1;
+					\DB::update("UPDATE set_no_urut set asuransi=".$urutSql);
+					$urutSql = str_pad($urutSql, 3, '0', STR_PAD_LEFT); 
+					$urutSql = 'A'.$urutSql;
+					$affected = \DB::table('penjab')->where('id','=', $id)
+								->update(array('kd_pj'=> $urutSql));
+			}	
+			
 			return response()->json(array(
 				'status'=>'success',
 				'message'=> \Lang::get('core.note_success')
 				));	
-
 		} else {
 
 			$message = $this->validateListError(  $validator->getMessageBag()->toArray() );

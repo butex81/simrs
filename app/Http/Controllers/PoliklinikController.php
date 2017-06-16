@@ -190,17 +190,28 @@ class PoliklinikController extends Controller {
 
 	function postSave( Request $request, $id =0)
 	{
-		
 		$rules = $this->validateForm();
 		$validator = Validator::make($request->all(), $rules);	
 		if ($validator->passes()) {
+			$cekPost = $request->input('kd_poli');
 			$data = $this->validatePost('poliklinik');
 			
 			$id = $this->model->insertRow($data , $request->input('id'));
+
+			if( $cekPost == '' )
+			{
+					$result = \DB::table('set_no_urut')->select('unit')->first();
+					$urutSql = $result->unit + 1;
+					\DB::update("UPDATE set_no_urut set unit=".$urutSql);
+					$urutSql = str_pad($urutSql, 3, '0', STR_PAD_LEFT); 
+					$urutSql = 'P'.$urutSql;
+					$affected = \DB::table('poliklinik')->where('id','=', $id)
+								->update(array('kd_poli'=> $urutSql));
+			}	
 			
 			return response()->json(array(
 				'status'=>'success',
-				'message'=> \Lang::get('core.note_success')
+				'message'=> \Lang::get('core.note_success')."--".$cekPost
 				));	
 			
 		} else {
