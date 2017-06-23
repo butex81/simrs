@@ -338,12 +338,19 @@ class PasienController extends Controller {
 		//echo SiteHelpers::encryptID($id,true);exit();
 					//array("filternoid"=>SiteHelpers::encryptID($id,true)),
 		$jasper = new JasperPHP;
+		$input = base_path() . '/report/'. $filename . '.jasper';
+		$output = base_path() . '/report/';
 		$jasper->process(
-					base_path() . '/report/'. $filename . '.jasper',
-					base_path() . '/report/',
+					$input,
+					$output,
 					array("pdf","rtf"),
 					array("namars"=>"RSIA ASYIFA", "alamatrs"=>"alamatnya", "kotars"=>"kotars", "propinsirs"=>"propinsirs", "kontakrs"=>"kontakrs", "emailrs"=>"emailrs" ),
-					$database
+					array(
+							'driver' => 'mysql',
+							'username' => 'unoriddbuser',
+							'host' => 'localhost',
+							'database' => 'hVnCkPnhTZNq',
+						)
 					)->execute();
 
  		header('Content-Description: File Transfer');
