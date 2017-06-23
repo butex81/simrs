@@ -345,12 +345,7 @@ class PasienController extends Controller {
 					$output,
 					array("pdf","rtf"),
 					array("namars"=>"RSIA ASYIFA", "alamatrs"=>"alamatnya", "kotars"=>"kotars", "propinsirs"=>"propinsirs", "kontakrs"=>"kontakrs", "emailrs"=>"emailrs" ),
-					array(
-							'driver' => 'mysql',
-							'username' => 'unoriddbuser',
-							'host' => 'localhost',
-							'database' => 'hVnCkPnhTZNq',
-						)
+					$database
 					)->execute();
 
  		header('Content-Description: File Transfer');
