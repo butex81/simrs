@@ -19,6 +19,7 @@
 
 	 
 	 <?php echo Form::open(array('url'=>'pasien/delete/', 'class'=>'form-horizontal' ,'id' =>'SximoTable'  ,'data-parsley-validate'=>'' )) ;?>
+
 <div class="table-responsive">	
 	<?php if(count($rowData)>=1): ?>
     <table class="table table-striped  " id="<?php echo e($pageModule); ?>Table">
@@ -120,30 +121,36 @@
 	</div>
 </div>	
 
+  
+	<?php if($setting['inline'] =='true'): ?> <?php echo $__env->make('sximo.module.utility.inlinegrid', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php endif; ?>
+
 	<!--/**************************************************
      * Context-Menu with Sub-Menu
      **************************************************/-->
 
-  <div id="contextMenu" class="dropdown clearfix">
-    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
-      <li><a tabindex="-1" href="#">Action</a></li>
-      <li><a tabindex="-1" href="#">Another action</a></li>
-      <li><a tabindex="-1" href="#">Something else here</a></li>
-      <li class="divider"></li>
-      <li><a tabindex="-1" href="#">Separated link</a></li>
-    </ul>
-  </div>
-  
-	<?php if($setting['inline'] =='true'): ?> <?php echo $__env->make('sximo.module.utility.inlinegrid', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php endif; ?>
-<script type="text/javascript" src="<?php echo e(URL::asset('sximo/js/getbootstrap.js')); ?>"></script>
-<!--link rel="stylesheet" href="<?php echo e(URL::asset('sximo/css/getbootstrap-responsive.css')); ?>" />
-<link rel="stylesheet" href="<?php echo e(URL::asset('sximo/css/getbootstrap.css')); ?>" /-->
+	<menu id="html5menu" type="context" style="display:none">  
+		<command label="rotate" onclick="alert('rotate')" icon="fa-tag">
+		<command label="resize" onclick="alert('resize')" icon="fa-tag">
+		<menu label="share" icon="fa-tags">
+			<command label="twitter" onclick="alert('twitter')" icon="fa-tag">
+			<hr>
+			<command label="facebook" onclick="alert('facebook')" icon="fa-tag">
+			<hr>
+			<label>foo bar<input type="text" id="foo" name="foo"></label>
+		</menu>
+	</menu>
+
+	<script type="text/javascript" src="<?php echo e(URL::asset('sximo/js/jquery.contextMenu.js')); ?>"></script>
+	<script type="text/javascript" src="<?php echo e(URL::asset('sximo/js/jquery.ui.position.min.js')); ?>"></script>
+	<link rel="stylesheet" href="<?php echo e(URL::asset('sximo/css/jquery.contextMenu.css')); ?>" />
+
+	
 <script>
 $(document).ready(function() {
 	$('.tips').tooltip();	
 	$('input[type="checkbox"],input[type="radio"]').iCheck({
 		checkboxClass: 'icheckbox_square-red',
-		radioClass: 'iradio_square-red',
+		radioClass: 'iradio_square-red',		
 	});	
 	$('#<?php echo e($pageModule); ?>Table .checkall').on('ifChecked',function(){
 		$('#<?php echo e($pageModule); ?>Table input[type="checkbox"]').iCheck('check');
@@ -169,32 +176,13 @@ $(document).ready(function() {
      * Context-Menu with Sub-Menu
      **************************************************/
 
-$(function() {
-  
-  var $contextMenu = $("#contextMenu");
-  
-  $("body").on("contextmenu", "table tr", function(e) {
-    $contextMenu.css({
-      display: "block",
-      left: e.pageX,
-      top: e.pageY
-    });
-    return false;
-  });
-  
-  $contextMenu.on("click", "a", function() {
-     $contextMenu.hide();
-  });
-  
-});		
-</script>	
-<style>
-.table th.right { text-align:right !important;}
-.table th.center { text-align:center !important;}
+	$(function(){
+		$.contextMenu({
+			selector: '.editable', 
+			items: $.contextMenu.fromMenu($('#html5menu'))
+		});
+	});
 
-#contextMenu {
-  position: absolute;
-  display:none;
-}
-</style>
+</script>	
+
 	

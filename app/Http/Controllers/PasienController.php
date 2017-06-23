@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 use Carbon\Carbon;
+use JasperPHP\JasperPHP;
 
 class PasienController extends Controller {
 
@@ -325,5 +326,40 @@ class PasienController extends Controller {
 	
 	}	
 				
+
+	function getPrintkartu( $id = null)
+	{
+	
+		$output = base_path() . '/report/';
+		$ext = ".pdf";
+		$filename = "rptPasien";
+		$database = \Config::get('database.connections.mysql');
+		//JasperPHP::compile(base_path() . '/report/'.$filename.'.jrxml')->execute();
+		//echo SiteHelpers::encryptID($id,true);exit();
+					//array("filternoid"=>SiteHelpers::encryptID($id,true)),
+		$jasper = new JasperPHP;
+		$jasper->process(
+					base_path() . '/report/'. $filename . '.jasper',
+					base_path() . '/report/',
+					array("pdf","rtf"),
+					array("namars"=>"RSIA ASYIFA", "alamatrs"=>"alamatnya", "kotars"=>"kotars", "propinsirs"=>"propinsirs", "kontakrs"=>"kontakrs", "emailrs"=>"emailrs" ),
+					$database
+					)->execute();
+
+ 		header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        //header('Content-Disposition: attachment; filename='.time().'_codelution.'.$ext);
+		header('Content-Disposition: attachment; filename='.$filename.$ext);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($output.$filename.$ext));
+        flush();
+        readfile($output.$filename.$ext);
+        unlink($output.$filename.$ext);		
+
+		return Redirect::to('pasien?md='.Input::get('md'));
+	}
 
 }

@@ -155,6 +155,9 @@ class AjaxHelpers
 			
 			$html .= ' <a href="'.URL::to($module.'/update/'.$id).'" '.$onclick.'  class="btn btn-xs btn-white tips" title="'.Lang::get('core.btn_edit').'"><i class="fa  fa-edit"></i></a>';
 		}
+		if($module == 'pasien') {
+			$html .= '<li><a href="'.URL::to($module.'/printkartu/'.$id).'" '.'><i class="fa  fa-print"></i> Print Kartu</a></li>';
+		}
 		$html .= '</div>';
 		return $html;
 	}	
