@@ -331,6 +331,7 @@ class PasienController extends Controller {
 	{
 	
 		$output = base_path() . '/report/';
+		$input = base_path() . '/report/'. $filename . '.jasper';
 		$ext = ".pdf";
 		$filename = "rptPasien";
 		$database = \Config::get('database.connections.mysql');
@@ -338,8 +339,6 @@ class PasienController extends Controller {
 		//echo SiteHelpers::encryptID($id,true);exit();
 					//array("filternoid"=>SiteHelpers::encryptID($id,true)),
 		$jasper = new JasperPHP;
-		$input = base_path() . '/report/'. $filename . '.jasper';
-		$output = base_path() . '/report/';
 		$jasper->process(
 					$input,
 					$output,
